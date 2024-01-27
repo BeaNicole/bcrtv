@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BCRTV │EBN</title>
+   <link rel="icon" href="favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(11, 12, 15);
+      color: white;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent;
+      z-index: 1000;
+    }
+
+    .back-link {
+      float: left;
+      font-size: 15px;
+      margin: 10px;
+       background-color: rgba(11, 12, 15, 0.5);  /* Set background color to black */
+      border-radius: 50px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border: 0.5px solid white; /* Add white border */
+    }
+
+    .back-link a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      background-color: #333; /* Darken the background on hover */
+    }
+
+
+    @media screen and (max-width: 600px) {
+      .back-link {
+        font-size: 10px; /* Adjust the font size for smaller screens (phone view) */
+      }
+    }
+
+    /* Additional styles for content */
+    .content {
+      margin-top: 60px; /* Adjust this margin to create space for the fixed navbar */
+      padding: 0px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="back-link">
+    <a href="index.html" onclick="history.go(-1); return false;"> ← Go Back</a>
+  </div>
+</div>
+
+<div class="content">
+  <!-- Your content goes here -->
+
+  <!-- JotForm script -->
+  <script type="text/javascript" src="https://form.jotform.com/jsform/240248324389056"></script>
+</div>
+
+</body>
+</html>
