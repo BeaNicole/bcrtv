@@ -64,9 +64,97 @@
       height: 100vh; /* 100% of the viewport height */
       border: 0; /* Remove iframe border */
     }
+
+    /* Popup video container */
+    .popup-video-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1001;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px; /* Max width for smaller screens */
+      display: none; /* Initially hidden */
+    }
+
+    /* Exit button */
+    .exit-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      border: 1px solid white;
+      border-radius: 50%;
+      padding: 5px;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+    }
+
+    .exit-button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /* Preview button */
+    .preview-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 15px;
+      margin: 10px;
+      background-color: rgba(11, 12, 15, 0.5);
+      border-radius: 50px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border: 0.5px solid white;
+      z-index: 1000;
+    }
+
+    .preview-button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .preview-button a:hover {
+      background-color: #333;
+    }
+
+    /* New Template Available */
+    .new-template {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-size: 20px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
+
+<!-- Popup Video Container -->
+<div class="popup-video-container" id="popupContainer">
+  <span class="new-template"></span>
+  <video id="popup-video" autoplay controls loop>
+    <source src="video tshirt.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="exit-button" onclick="closePopup()">x</div>
+</div>
 
 <div class="navbar">
   <div class="back-link">
@@ -74,6 +162,32 @@
   </div>
 </div>
 <iframe src="https://beanicole.github.io/bfrms/mfyt.html" frameborder="0"></iframe>
+
+<script>
+  // Function to close the popup
+  function closePopup() {
+    var popup = document.querySelector('.popup-video-container');
+    var video = document.getElementById('popup-video');
+    popup.style.display = 'none';
+    video.pause(); // Pause the video
+    document.getElementById('previewButton').style.display = 'block'; // Show the preview button
+  }
+
+  // Function to open the popup
+  function openPopup() {
+    var popup = document.querySelector('.popup-video-container');
+    popup.style.display = 'block';
+    var video = document.getElementById('popup-video');
+    video.currentTime = 0; // Start video from the beginning
+    video.play(); // Start playing the video
+    document.getElementById('previewButton').style.display = 'none'; // Hide the preview button
+  }
+
+  // Automatically open the popup on page load
+  window.onload = function() {
+    openPopup();
+  };
+</script>
 
 </body>
 </html>
